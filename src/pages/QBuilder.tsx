@@ -157,7 +157,7 @@ const AIQueryMockup = () => {
 
   return (
     <div
-      className={`w-[320px] md:w-[400px] backdrop-blur-xl border rounded-2xl overflow-hidden flex flex-col font-sans select-none transition-colors duration-500 shadow-2xl ${
+      className={`w-[320px] md:w-100 backdrop-blur-xl border rounded-2xl overflow-hidden flex flex-col font-sans select-none transition-colors duration-500 shadow-2xl ${
         isDark
           ? "bg-[#0a0a0a]/90 border-white/10"
           : "bg-white/90 border-black/10"
@@ -165,9 +165,7 @@ const AIQueryMockup = () => {
     >
       <div
         className={`h-10 border-b flex items-center px-4 justify-between transition-colors duration-500 ${
-          isDark
-            ? "bg-white/[0.02] border-white/5"
-            : "bg-zinc-50 border-black/5"
+          isDark ? "bg-white/2 border-white/5" : "bg-zinc-50 border-black/5"
         }`}
       >
         <div
@@ -180,7 +178,7 @@ const AIQueryMockup = () => {
       </div>
       <div className="p-4 flex flex-col gap-3">
         <div
-          className={`border rounded-lg p-3 text-xs leading-relaxed font-medium min-h-[60px] transition-colors duration-500 ${
+          className={`border rounded-lg p-3 text-xs leading-relaxed font-medium min-h-15 transition-colors duration-500 ${
             isDark
               ? "bg-blue-500/10 border-blue-500/20 text-blue-200"
               : "bg-blue-50 border-blue-100 text-blue-800"
@@ -194,7 +192,7 @@ const AIQueryMockup = () => {
         ></div>
 
         <div
-          className={`font-mono text-[10px] md:text-xs leading-relaxed p-3 rounded-lg border min-h-[120px] flex flex-col justify-center transition-colors duration-500 ${
+          className={`font-mono text-[10px] md:text-xs leading-relaxed p-3 rounded-lg border min-h-30 flex flex-col justify-center transition-colors duration-500 ${
             isDark
               ? "bg-[#050505] border-white/5 text-zinc-300"
               : "bg-zinc-50 border-black/5 text-zinc-700"
@@ -225,6 +223,7 @@ const AIQueryMockup = () => {
         </div>
 
         <button
+          type="button"
           className={`w-full text-xs py-2 rounded transition flex justify-center items-center gap-2 font-medium ${
             phase === 2
               ? isDark
@@ -246,7 +245,7 @@ const DashboardMockup = () => {
   const { isDark } = useTheme();
   return (
     <div
-      className={`w-[350px] md:w-[600px] h-[380px] md:h-[450px] backdrop-blur-2xl border rounded-2xl shadow-2xl overflow-hidden flex flex-col font-sans select-none relative z-20 transition-colors duration-500 ${
+      className={`w-87.5 md:w-150 h-95 md:h-112.5 backdrop-blur-2xl border rounded-2xl shadow-2xl overflow-hidden flex flex-col font-sans select-none relative z-20 transition-colors duration-500 ${
         isDark
           ? "bg-[#050505]/80 border-white/10"
           : "bg-white/80 border-black/10"
@@ -254,9 +253,7 @@ const DashboardMockup = () => {
     >
       <div
         className={`h-12 border-b flex items-center px-4 justify-between transition-colors duration-500 ${
-          isDark
-            ? "bg-white/[0.03] border-white/10"
-            : "bg-zinc-50 border-black/10"
+          isDark ? "bg-white/3 border-white/10" : "bg-zinc-50 border-black/10"
         }`}
       >
         <div className="flex gap-2">
@@ -322,7 +319,7 @@ const DashboardMockup = () => {
         </div>
 
         <div
-          className={`flex-1 border rounded-xl p-4 flex flex-col h-full min-h-[150px] transition-colors duration-500 ${
+          className={`flex-1 border rounded-xl p-4 flex flex-col h-full min-h-37.5 transition-colors duration-500 ${
             isDark ? "bg-white/5 border-white/5" : "bg-zinc-50 border-black/5"
           }`}
         >
@@ -369,7 +366,7 @@ const DataSourcesMockup = () => {
   const { isDark } = useTheme();
   return (
     <div
-      className={`w-[280px] md:w-[320px] backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden flex flex-col font-sans select-none transition-colors duration-500 ${
+      className={`w-70 md:w-[320px] backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden flex flex-col font-sans select-none transition-colors duration-500 ${
         isDark
           ? "bg-[#0a0a0a]/90 border-white/10"
           : "bg-white/90 border-black/10"
@@ -377,9 +374,7 @@ const DataSourcesMockup = () => {
     >
       <div
         className={`h-10 border-b flex items-center px-4 justify-between transition-colors duration-500 ${
-          isDark
-            ? "bg-white/[0.02] border-white/5"
-            : "bg-zinc-50 border-black/5"
+          isDark ? "bg-white/2 border-white/5" : "bg-zinc-50 border-black/5"
         }`}
       >
         <div
@@ -463,7 +458,7 @@ const IDEMockup = () => {
   const { isDark } = useTheme();
   return (
     <div
-      className={`w-full h-full min-h-[300px] border rounded-2xl flex flex-col overflow-hidden font-mono text-xs md:text-sm shadow-2xl transition-colors duration-500 ${
+      className={`w-full h-full min-h-75 border rounded-2xl flex flex-col overflow-hidden font-mono text-xs md:text-sm shadow-2xl transition-colors duration-500 ${
         isDark ? "bg-[#0a0a0a] border-white/10" : "bg-[#1e1e1e] border-black/20"
       }`}
     >
@@ -484,7 +479,8 @@ const IDEMockup = () => {
       <div className="p-4 md:p-6 text-zinc-300 flex-1 overflow-x-auto whitespace-pre">
         <span className="text-pink-400">import</span> {"{"} useQuery, DataGrid{" "}
         {"}"} <span className="text-pink-400">from</span>{" "}
-        <span className="text-green-300">&apos;@qbuilder/react&apos;</span>;
+        <span className="text-green-300">&apos;@qbuilder/react&apos;</span>
+        {";"}
         <br />
         <br />
         <span className="text-pink-400">export default function</span>{" "}
@@ -534,7 +530,7 @@ const DesignerUI = () => {
   const { isDark } = useTheme();
   return (
     <div
-      className={`w-full h-[600px] border-t border-x rounded-t-3xl flex flex-col overflow-hidden shadow-2xl font-sans text-left z-20 relative transition-colors duration-500 ${
+      className={`w-full h-150 border-t border-x rounded-t-3xl flex flex-col overflow-hidden shadow-2xl font-sans text-left z-20 relative transition-colors duration-500 ${
         isDark ? "bg-[#0a0a0a] border-white/10" : "bg-white border-black/10"
       }`}
     >
@@ -556,10 +552,14 @@ const DesignerUI = () => {
           </div>
         </div>
         <div className="flex gap-3">
-          <button className="text-zinc-500 hover:text-blue-500 text-xs font-semibold px-3 py-1.5 transition">
+          <button
+            type="button"
+            className="text-zinc-500 hover:text-blue-500 text-xs font-semibold px-3 py-1.5 transition"
+          >
             Preview
           </button>
           <button
+            type="button"
             className={`text-xs font-bold px-5 py-1.5 rounded-md transition shadow-md ${
               isDark
                 ? "bg-white text-black hover:bg-zinc-200"
@@ -778,10 +778,14 @@ const DesignerUI = () => {
               isDark ? "bg-white/5 border-white/10" : "bg-white border-black/5"
             }`}
           >
-            <button className="flex-1 py-2 text-center text-zinc-500 hover:text-blue-500 font-medium rounded transition">
+            <button
+              type="button"
+              className="flex-1 py-2 text-center text-zinc-500 hover:text-blue-500 font-medium rounded transition"
+            >
               Style
             </button>
             <button
+              type="button"
               className={`flex-1 py-2 text-center font-semibold rounded border shadow-sm transition-colors duration-500 ${
                 isDark
                   ? "bg-zinc-800 text-white border-white/10"
@@ -790,7 +794,10 @@ const DesignerUI = () => {
             >
               Data
             </button>
-            <button className="flex-1 py-2 text-center text-zinc-500 hover:text-blue-500 font-medium rounded transition">
+            <button
+              type="button"
+              className="flex-1 py-2 text-center text-zinc-500 hover:text-blue-500 font-medium rounded transition"
+            >
               Logic
             </button>
           </div>
@@ -930,7 +937,7 @@ export default function QBuilder() {
       <div className="min-h-screen relative font-sans selection:bg-blue-500/30">
         {/* TOP BANNER */}
         <div
-          className={`border-b text-xs font-medium text-center py-2.5 px-4 flex items-center justify-center gap-2 cursor-pointer relative z-[60] transition-colors duration-500 ${
+          className={`border-b text-xs font-medium text-center py-2.5 px-4 flex items-center justify-center gap-2 cursor-pointer relative z-60 transition-colors duration-500 ${
             isDark
               ? "bg-zinc-900 border-white/10 text-zinc-300 hover:bg-zinc-800"
               : "bg-zinc-100 border-black/5 text-zinc-700 hover:bg-zinc-200"
@@ -957,7 +964,7 @@ export default function QBuilder() {
           }`}
         ></div>
         <div
-          className={`absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full pointer-events-none z-0 transition-all duration-500 ${
+          className={`absolute top-0 left-1/2 -translate-x-1/2 w-200 h-100 rounded-full pointer-events-none z-0 transition-all duration-500 ${
             isDark
               ? "bg-blue-600/10 blur-[150px]"
               : "bg-blue-400/10 blur-[100px]"
@@ -968,8 +975,8 @@ export default function QBuilder() {
         <div
           className={`fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${
             scrolled
-              ? "top-4 w-[95%] lg:w-[85%] max-w-[1200px]"
-              : "top-10 w-full px-6 lg:px-12 max-w-[1400px]"
+              ? "top-4 w-[95%] lg:w-[85%] max-w-300"
+              : "top-10 w-full px-6 lg:px-12 max-w-350"
           }`}
         >
           <nav
@@ -1006,11 +1013,13 @@ export default function QBuilder() {
                 }`}
               >
                 <button
+                  type="button"
                   className={`transition ${isDark ? "hover:text-white" : "hover:text-zinc-900"}`}
                 >
                   Platform
                 </button>
                 <button
+                  type="button"
                   className={`transition flex items-center gap-1 ${
                     isDark ? "hover:text-white" : "hover:text-zinc-900"
                   }`}
@@ -1018,11 +1027,13 @@ export default function QBuilder() {
                   Solutions
                 </button>
                 <button
+                  type="button"
                   className={`transition ${isDark ? "hover:text-white" : "hover:text-zinc-900"}`}
                 >
                   Customers
                 </button>
                 <button
+                  type="button"
                   className={`transition ${isDark ? "hover:text-white" : "hover:text-zinc-900"}`}
                 >
                   Pricing
@@ -1031,6 +1042,7 @@ export default function QBuilder() {
             </div>
             <div className="hidden lg:flex items-center gap-4 text-sm font-semibold">
               <button
+                type="button"
                 onClick={() => setIsDark(!isDark)}
                 className={`p-2 rounded-full transition ${
                   isDark
@@ -1042,6 +1054,7 @@ export default function QBuilder() {
                 {isDark ? <Sun size={18} /> : <Moon size={18} />}
               </button>
               <button
+                type="button"
                 className={`transition px-2 ${
                   isDark
                     ? "text-zinc-300 hover:text-white"
@@ -1051,6 +1064,7 @@ export default function QBuilder() {
                 Log in
               </button>
               <button
+                type="button"
                 className={`px-5 py-2.5 rounded-full transition shadow-md ${
                   isDark
                     ? "bg-white text-black hover:bg-zinc-200"
@@ -1061,6 +1075,7 @@ export default function QBuilder() {
               </button>
             </div>
             <button
+              type="button"
               className={`lg:hidden ${isDark ? "text-white" : "text-zinc-900"}`}
             >
               <Menu />
@@ -1072,7 +1087,7 @@ export default function QBuilder() {
         <main
           ref={heroRef}
           onMouseMove={handleHeroMouseMove}
-          className="relative z-10 pt-40 pb-20 max-w-[1400px] mx-auto flex flex-col items-center justify-center overflow-hidden"
+          className="relative z-10 pt-40 pb-20 max-w-350 mx-auto flex flex-col items-center justify-center overflow-hidden"
         >
           <div
             className="text-center px-4 max-w-4xl mx-auto mb-16 relative z-30 transition-transform duration-200"
@@ -1100,7 +1115,7 @@ export default function QBuilder() {
                 Ship Data Apps.
                 <br />
                 <span
-                  className={`text-transparent bg-clip-text bg-gradient-to-r ${
+                  className={`text-transparent bg-clip-text bg-linear-to-r ${
                     isDark
                       ? "from-zinc-100 via-zinc-400 to-zinc-600"
                       : "from-blue-600 via-indigo-600 to-emerald-600"
@@ -1120,6 +1135,7 @@ export default function QBuilder() {
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
+                  type="button"
                   className={`w-full sm:w-auto px-8 py-4 rounded-full text-base font-bold transition-all hover:scale-105 active:scale-95 shadow-xl ${
                     isDark
                       ? "bg-white text-black shadow-white/10"
@@ -1129,6 +1145,7 @@ export default function QBuilder() {
                   Start Building Free
                 </button>
                 <button
+                  type="button"
                   onClick={() => setIsVideoOpen(true)}
                   className={`w-full sm:w-auto border px-8 py-4 rounded-full text-base font-medium transition flex items-center justify-center gap-2 backdrop-blur-md ${
                     isDark
@@ -1144,7 +1161,7 @@ export default function QBuilder() {
 
           <Reveal delay="delay-200" className="w-full">
             <div
-              className="relative w-full h-[450px] md:h-[600px] flex justify-center items-center mt-10 md:mt-0 transition-transform duration-200 ease-out"
+              className="relative w-full h-112.5 md:h-150 flex justify-center items-center mt-10 md:mt-0 transition-transform duration-200 ease-out"
               style={{
                 transform:
                   "rotateX(var(--tilt-x, 0)) rotateY(var(--tilt-y, 0))",
@@ -1192,20 +1209,18 @@ export default function QBuilder() {
         {/* LOGO TICKER */}
         <div
           className={`relative py-12 border-y overflow-hidden z-10 transition-colors duration-500 ${
-            isDark
-              ? "bg-white/[0.01] border-white/5"
-              : "bg-black/[0.02] border-black/5"
+            isDark ? "bg-white/1 border-white/5" : "bg-black/1 border-black/5"
           }`}
         >
           <div
-            className={`absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r z-20 transition-colors duration-500 ${
+            className={`absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r z-20 transition-colors duration-500 ${
               isDark
                 ? "from-[#050505] to-transparent"
                 : "from-zinc-50 to-transparent"
             }`}
           ></div>
           <div
-            className={`absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l z-20 transition-colors duration-500 ${
+            className={`absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l z-20 transition-colors duration-500 ${
               isDark
                 ? "from-[#050505] to-transparent"
                 : "from-zinc-50 to-transparent"
@@ -1239,7 +1254,7 @@ export default function QBuilder() {
         </div>
 
         {/* HOW IT WORKS SECTION */}
-        <section className="py-32 px-6 max-w-[1200px] mx-auto relative z-10">
+        <section className="py-32 px-6 max-w-300 mx-auto relative z-10">
           <Reveal>
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2
@@ -1327,7 +1342,7 @@ export default function QBuilder() {
             </Reveal>
             <Reveal
               delay="delay-200"
-              className={`border rounded-3xl p-6 h-[400px] flex items-center justify-center relative overflow-hidden shadow-2xl transition-colors duration-500 ${
+              className={`border rounded-3xl p-6 h-100 flex items-center justify-center relative overflow-hidden shadow-2xl transition-colors duration-500 ${
                 isDark
                   ? "bg-[#0a0a0a] border-white/10"
                   : "bg-zinc-100 border-black/10"
@@ -1347,7 +1362,7 @@ export default function QBuilder() {
                 {activeTab === "query" && (
                   <div className="animate-[fadeIn_0.5s_ease-out] flex justify-center scale-110">
                     <div
-                      className={`w-[350px] rounded-xl border p-4 font-mono text-xs shadow-xl transition-colors duration-500 ${
+                      className={`w-87.5 rounded-xl border p-4 font-mono text-xs shadow-xl transition-colors duration-500 ${
                         isDark
                           ? "bg-[#111] border-white/10 text-blue-400"
                           : "bg-white border-black/10 text-blue-600"
@@ -1413,7 +1428,7 @@ export default function QBuilder() {
               </p>
             </div>
           </Reveal>
-          <Reveal delay="delay-100" className="max-w-[1000px] mx-auto">
+          <Reveal delay="delay-100" className="max-w-250 mx-auto">
             <div className="flex flex-wrap justify-center gap-4 lg:gap-6">
               {[
                 "PostgreSQL",
@@ -1468,7 +1483,7 @@ export default function QBuilder() {
         </section>
 
         {/* BENTO GRID SECTION */}
-        <section className="py-20 px-6 max-w-[1200px] mx-auto relative z-10">
+        <section className="py-20 px-6 max-w-300 mx-auto relative z-10">
           <Reveal>
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2
@@ -1590,7 +1605,7 @@ export default function QBuilder() {
                       <div className="w-full flex items-end gap-1.5 h-12 mt-2">
                         <div className="flex-1 bg-blue-500 rounded-sm h-[40%]"></div>
                         <div className="flex-1 bg-blue-500 rounded-sm h-[70%]"></div>
-                        <div className="flex-1 bg-blue-500 rounded-sm h-[100%]"></div>
+                        <div className="flex-1 bg-blue-500 rounded-sm h-full"></div>
                         <div className="flex-1 bg-blue-500 rounded-sm h-[60%]"></div>
                       </div>
                       <div className="absolute -top-3 -right-3 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
@@ -1960,7 +1975,7 @@ export default function QBuilder() {
         </section>
 
         {/* DEVELOPER EXPERIENCE SECTION */}
-        <section className="py-24 px-6 max-w-[1200px] mx-auto relative z-10">
+        <section className="py-24 px-6 max-w-300 mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal delay="delay-200" className="order-2 lg:order-1">
               <IDEMockup />
@@ -2050,7 +2065,7 @@ export default function QBuilder() {
 
         {/* TESTIMONIALS */}
         <section
-          className={`py-24 px-6 max-w-[1200px] mx-auto relative z-10 border-t transition-colors duration-500 ${
+          className={`py-24 px-6 max-w-300 mx-auto relative z-10 border-t transition-colors duration-500 ${
             isDark ? "border-white/5" : "border-black/5"
           }`}
         >
@@ -2143,7 +2158,7 @@ export default function QBuilder() {
 
         {/* PRICING SNEAK PEEK */}
         <section
-          className={`py-24 px-6 max-w-[1000px] mx-auto relative z-10 border-t transition-colors duration-500 ${
+          className={`py-24 px-6 max-w-250 mx-auto relative z-10 border-t transition-colors duration-500 ${
             isDark ? "border-white/5" : "border-black/5"
           }`}
         >
@@ -2245,6 +2260,7 @@ export default function QBuilder() {
                     ))}
                   </div>
                   <button
+                    type="button"
                     className={`w-full py-3 rounded-full font-bold transition shadow-md ${
                       p.highlight
                         ? isDark
@@ -2335,7 +2351,7 @@ export default function QBuilder() {
               isDark ? "bg-blue-600/10" : "bg-blue-300/30"
             }`}
           ></div>
-          <div className="max-w-[800px] mx-auto text-center relative z-20 mb-24">
+          <div className="max-w-200 mx-auto text-center relative z-20 mb-24">
             <Reveal>
               <div
                 className={`w-16 h-16 rounded-2xl mx-auto mb-6 flex items-center justify-center transition-colors duration-500 ${
@@ -2367,6 +2383,7 @@ export default function QBuilder() {
                 scratch.
               </p>
               <button
+                type="button"
                 className={`px-10 py-4 rounded-full text-lg font-bold transition hover:scale-105 active:scale-95 shadow-xl ${
                   isDark
                     ? "bg-white text-black shadow-white/10"
@@ -2380,7 +2397,7 @@ export default function QBuilder() {
 
           <Reveal
             delay="delay-400"
-            className="w-full max-w-[1200px] px-4 mx-auto relative z-20"
+            className="w-full max-w-300 px-4 mx-auto relative z-20"
           >
             <DesignerUI />
           </Reveal>
@@ -2392,7 +2409,7 @@ export default function QBuilder() {
             isDark ? "bg-[#050505] border-white/10" : "bg-white border-black/5"
           }`}
         >
-          <div className="max-w-[1200px] mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-10 text-sm">
+          <div className="max-w-300 mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-10 text-sm">
             <div className="col-span-2 lg:col-span-2">
               <div
                 className={`text-2xl font-black tracking-tighter flex items-center gap-2 mb-6 transition-colors duration-500 ${
@@ -2593,6 +2610,7 @@ export default function QBuilder() {
                   }`}
                 />
                 <button
+                  type="button"
                   className={`px-4 py-2 rounded-md font-bold transition shadow-md ${
                     isDark
                       ? "bg-white text-black hover:bg-zinc-200"
