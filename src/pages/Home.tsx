@@ -16,6 +16,7 @@ const Github: React.FC<{ className?: string }> = ({ className }) => (
     strokeLinecap="round"
     strokeLinejoin="round"
     className={className}
+    role="img"
     aria-label="GitHub"
   >
     <title>GitHub</title>
@@ -126,7 +127,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
     >
       {/* Spotlight Effect (Follows Mouse) */}
       <div
-        className="absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"
+        className="absolute -inset-[1px] rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"
         style={{
           background: `radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.15), transparent 40%)`,
         }}
@@ -136,7 +137,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
         className={`relative h-full bg-[#0a0a0a]/80 backdrop-blur-xl border border-white/5 rounded-3xl p-6 transition-all duration-500 z-10 flex flex-col ${project.theme.border} group-hover:shadow-2xl group-hover:shadow-black`}
       >
         {/* Top Section: Abstract "Art Cover" */}
-        <div className="relative w-full h-40 bg-white/2 border border-white/5 rounded-2xl mb-6 overflow-hidden flex items-center justify-center">
+        <div className="relative w-full h-40 bg-white/[0.02] border border-white/5 rounded-2xl mb-6 overflow-hidden flex items-center justify-center">
           {/* Subtle Dot Pattern inside cover */}
           <div
             className="absolute inset-0"
@@ -148,7 +149,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
 
           {/* Gradient Orb / Abstract Glow */}
           <div
-            className="absolute w-32 h-32 rounded-full blur-2xl transition-all duration-700 ease-out group-hover:scale-150 group-hover:blur-[50px]"
+            className="absolute w-32 h-32 rounded-full blur-[40px] transition-all duration-700 ease-out group-hover:scale-150 group-hover:blur-[50px]"
             style={{ backgroundColor: project.theme.light }}
           />
 
@@ -215,11 +216,11 @@ export default function Home() {
       <div className="fixed inset-0 z-0 noise-bg"></div>
 
       {/* Subtle Top Ambient Light */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-250 h-100 bg-white/2 blur-[120px] rounded-full pointer-events-none z-0"></div>
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-white/[0.02] blur-[120px] rounded-full pointer-events-none z-0"></div>
 
       {/* Header Navigation */}
-      <header className="z-50 border-b border-white/5 bg-[#050505]/60 backdrop-blur-xl sticky top-0">
-        <div className="max-w-300 mx-auto px-6 h-16 flex items-center justify-between">
+      <header className="relative z-50 border-b border-white/5 bg-[#050505]/60 backdrop-blur-xl sticky top-0">
+        <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-white text-black rounded flex items-center justify-center font-bold">
               <Box className="w-4 h-4" />
@@ -248,7 +249,7 @@ export default function Home() {
       </header>
 
       {/* Hero Area */}
-      <main className="relative z-10 flex-1 w-full max-w-300 mx-auto px-6 pt-24 pb-32">
+      <main className="relative z-10 flex-1 w-full max-w-[1200px] mx-auto px-6 pt-24 pb-32">
         <div className="max-w-2xl mb-20 animate-fade-up">
           <div className="inline-flex items-center gap-2 text-zinc-400 text-xs font-semibold tracking-widest uppercase mb-6">
             <Code2 className="w-4 h-4 text-white" /> Frontend Explorations
@@ -301,7 +302,7 @@ export default function Home() {
 
       {/* Minimalist Footer */}
       <footer className="relative z-10 border-t border-white/5 bg-[#050505]">
-        <div className="max-w-300 mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between text-xs text-zinc-500 font-medium">
+        <div className="max-w-[1200px] mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between text-xs text-zinc-500 font-medium">
           <p>UI Experiments &amp; Prototypes. </p>
           <p className="mt-2 md:mt-0">© {new Date().getFullYear()} Nizar Fadlan.</p>
         </div>
