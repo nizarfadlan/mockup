@@ -101,7 +101,10 @@ interface Project {
 }
 
 // Project Card Component with Spotlight & Abstract Cover
-const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
+const ProjectCard: React.FC<{ project: Project; index: number }> = ({
+  project,
+  index,
+}) => {
   const cardRef = useRef<HTMLAnchorElement>(null);
   const Icon = project.icon;
 
@@ -139,7 +142,8 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage: "radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px)",
+              backgroundImage:
+                "radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px)",
               backgroundSize: "12px 12px",
             }}
           ></div>
@@ -170,7 +174,9 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
             <ArrowUpRight className="w-5 h-5 text-zinc-600 opacity-0 -translate-x-2 translate-y-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-white transition-all duration-300" />
           </h3>
 
-          <p className="text-sm text-zinc-500 leading-relaxed mb-6 flex-1">{project.description}</p>
+          <p className="text-sm text-zinc-500 leading-relaxed mb-6 flex-1">
+            {project.description}
+          </p>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-2 mt-auto">
@@ -204,7 +210,9 @@ export default function Home() {
 
   // Filter Logic
   const filteredProjects =
-    activeFilter === "All" ? projects : projects.filter((p) => p.tags.includes(activeFilter));
+    activeFilter === "All"
+      ? projects
+      : projects.filter((p) => p.tags.includes(activeFilter));
 
   return (
     <div className="relative min-h-screen flex flex-col font-sans">
@@ -223,7 +231,8 @@ export default function Home() {
               <Box className="w-4 h-4" />
             </div>
             <span className="font-semibold text-white tracking-tight text-sm">
-              UI Lab <span className="text-zinc-500 font-normal">/ Nizar Fadlan</span>
+              UI Lab{" "}
+              <span className="text-zinc-500 font-normal">/ Nizar Fadlan</span>
             </span>
           </div>
           <div className="flex items-center gap-4 text-sm font-medium">
@@ -239,7 +248,8 @@ export default function Home() {
               rel="noreferrer"
               className="flex items-center gap-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white px-3 py-1.5 rounded-lg transition-all"
             >
-              <Github className="w-4 h-4" /> <span className="hidden sm:inline">GitHub</span>
+              <Github className="w-4 h-4" />{" "}
+              <span className="hidden sm:inline">GitHub</span>
             </a>
           </div>
         </div>
@@ -256,8 +266,9 @@ export default function Home() {
             <span className="text-zinc-500">one pixel at a time.</span>
           </h1>
           <p className="text-lg text-zinc-400 leading-relaxed font-light">
-            A curated collection of user interfaces and interaction experiments. Built purely with
-            HTML, Tailwind CSS, and React without build steps for instant deployment.
+            A curated collection of user interfaces and interaction experiments.
+            Built purely with HTML, Tailwind CSS, and React without build steps
+            for instant deployment.
           </p>
         </div>
 
@@ -300,7 +311,9 @@ export default function Home() {
       <footer className="relative z-10 border-t border-white/5 bg-[#050505]">
         <div className="max-w-[1200px] mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between text-xs text-zinc-500 font-medium">
           <p>UI Experiments &amp; Prototypes. </p>
-          <p className="mt-2 md:mt-0">© {new Date().getFullYear()} Nizar Fadlan.</p>
+          <p className="mt-2 md:mt-0">
+            © {new Date().getFullYear()} Nizar Fadlan.
+          </p>
         </div>
       </footer>
     </div>

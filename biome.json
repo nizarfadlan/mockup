@@ -32,8 +32,8 @@
         "noArrayIndexKey": "off"
       },
       "a11y": {
-        "noSvgWithoutTitle": "off",
-        "useButtonType": "off",
+        "noSvgWithoutTitle": "error",
+        "useButtonType": "error",
         "noStaticElementInteractions": "off",
         "useKeyWithClickEvents": "off",
         "useValidAnchor": "off"

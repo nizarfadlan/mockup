@@ -33,10 +33,19 @@ import {
   Users,
   X,
 } from "lucide-react";
-import React, { createContext, useContext, useEffect, useRef, useState } from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 // --- THEME CONTEXT ---
-const ThemeContext = createContext<{ isDark: boolean; toggleTheme: () => void }>({
+const ThemeContext = createContext<{
+  isDark: boolean;
+  toggleTheme: () => void;
+}>({
   isDark: false,
   toggleTheme: () => {},
 });
@@ -49,8 +58,16 @@ const useScrollReveal = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add("opacity-100", "translate-y-0", "scale-100");
-          entry.target.classList.remove("opacity-0", "translate-y-12", "scale-[0.98]");
+          entry.target.classList.add(
+            "opacity-100",
+            "translate-y-0",
+            "scale-100",
+          );
+          entry.target.classList.remove(
+            "opacity-0",
+            "translate-y-12",
+            "scale-[0.98]",
+          );
         }
       },
       { threshold: 0.15 },
@@ -61,11 +78,11 @@ const useScrollReveal = () => {
   return ref;
 };
 
-const Reveal: React.FC<{ children: React.ReactNode; delay?: string; className?: string }> = ({
-  children,
-  delay = "",
-  className = "",
-}) => {
+const Reveal: React.FC<{
+  children: React.ReactNode;
+  delay?: string;
+  className?: string;
+}> = ({ children, delay = "", className = "" }) => {
   const ref = useScrollReveal();
   return (
     <div
@@ -77,10 +94,10 @@ const Reveal: React.FC<{ children: React.ReactNode; delay?: string; className?: 
   );
 };
 
-const SpotlightCard: React.FC<{ children: React.ReactNode; className?: string }> = ({
-  children,
-  className = "",
-}) => {
+const SpotlightCard: React.FC<{
+  children: React.ReactNode;
+  className?: string;
+}> = ({ children, className = "" }) => {
   const { isDark } = useTheme();
   const divRef = useRef<HTMLDivElement>(null);
 
@@ -118,7 +135,8 @@ const SpotlightCard: React.FC<{ children: React.ReactNode; className?: string }>
 
 const AIQueryMockup = () => {
   const { isDark } = useTheme();
-  const fullText = "Generate a monthly revenue report grouped by region for the last 6 months.";
+  const fullText =
+    "Generate a monthly revenue report grouped by region for the last 6 months.";
   const [displayedText, setDisplayedText] = useState("");
   const [phase, setPhase] = useState(0);
 
@@ -140,12 +158,16 @@ const AIQueryMockup = () => {
   return (
     <div
       className={`w-[320px] md:w-[400px] backdrop-blur-xl border rounded-2xl overflow-hidden flex flex-col font-sans select-none transition-colors duration-500 shadow-2xl ${
-        isDark ? "bg-[#0a0a0a]/90 border-white/10" : "bg-white/90 border-black/10"
+        isDark
+          ? "bg-[#0a0a0a]/90 border-white/10"
+          : "bg-white/90 border-black/10"
       }`}
     >
       <div
         className={`h-10 border-b flex items-center px-4 justify-between transition-colors duration-500 ${
-          isDark ? "bg-white/[0.02] border-white/5" : "bg-zinc-50 border-black/5"
+          isDark
+            ? "bg-white/[0.02] border-white/5"
+            : "bg-zinc-50 border-black/5"
         }`}
       >
         <div
@@ -186,10 +208,14 @@ const AIQueryMockup = () => {
           {phase === 2 && (
             <div className="animate-[fadeIn_0.5s_ease-out]">
               <span className="text-blue-500">SELECT</span> region, <br />
-              &nbsp;&nbsp;DATE_TRUNC(<span className="text-zinc-400">&apos;month&apos;</span>, date){" "}
+              &nbsp;&nbsp;DATE_TRUNC(
+              <span className="text-zinc-400">&apos;month&apos;</span>, date){" "}
               <span className="text-blue-500">AS</span> mth,
               <br />
-              &nbsp;&nbsp;SUM(revenue) <span className="text-blue-500">AS</span> total
+              &nbsp;&nbsp;SUM(revenue) <span className="text-blue-500">
+                AS
+              </span>{" "}
+              total
               <br />
               <span className="text-blue-500">FROM</span> sales_data
               <br />
@@ -221,12 +247,16 @@ const DashboardMockup = () => {
   return (
     <div
       className={`w-[350px] md:w-[600px] h-[380px] md:h-[450px] backdrop-blur-2xl border rounded-2xl shadow-2xl overflow-hidden flex flex-col font-sans select-none relative z-20 transition-colors duration-500 ${
-        isDark ? "bg-[#050505]/80 border-white/10" : "bg-white/80 border-black/10"
+        isDark
+          ? "bg-[#050505]/80 border-white/10"
+          : "bg-white/80 border-black/10"
       }`}
     >
       <div
         className={`h-12 border-b flex items-center px-4 justify-between transition-colors duration-500 ${
-          isDark ? "bg-white/[0.03] border-white/10" : "bg-zinc-50 border-black/10"
+          isDark
+            ? "bg-white/[0.03] border-white/10"
+            : "bg-zinc-50 border-black/10"
         }`}
       >
         <div className="flex gap-2">
@@ -256,7 +286,9 @@ const DashboardMockup = () => {
               isDark ? "bg-white/5 border-white/5" : "bg-zinc-50 border-black/5"
             }`}
           >
-            <div className={`text-xs mb-1 ${isDark ? "text-zinc-400" : "text-zinc-500"}`}>
+            <div
+              className={`text-xs mb-1 ${isDark ? "text-zinc-400" : "text-zinc-500"}`}
+            >
               Total Revenue
             </div>
             <div
@@ -273,7 +305,9 @@ const DashboardMockup = () => {
               isDark ? "bg-white/5 border-white/5" : "bg-zinc-50 border-black/5"
             }`}
           >
-            <div className={`text-xs mb-1 ${isDark ? "text-zinc-400" : "text-zinc-500"}`}>
+            <div
+              className={`text-xs mb-1 ${isDark ? "text-zinc-400" : "text-zinc-500"}`}
+            >
               Active Users
             </div>
             <div
@@ -293,13 +327,17 @@ const DashboardMockup = () => {
           }`}
         >
           <div className="flex justify-between items-center mb-4">
-            <div className={`text-sm font-semibold ${isDark ? "text-zinc-200" : "text-zinc-800"}`}>
+            <div
+              className={`text-sm font-semibold ${isDark ? "text-zinc-200" : "text-zinc-800"}`}
+            >
               Revenue Growth
             </div>
             <div className="flex gap-2">
               <div
                 className={`w-6 h-6 rounded-md flex items-center justify-center text-blue-500 ${
-                  isDark ? "bg-white/10" : "bg-white shadow-sm border border-black/5"
+                  isDark
+                    ? "bg-white/10"
+                    : "bg-white shadow-sm border border-black/5"
                 }`}
               >
                 <BarChart3 className="w-3 h-3" />
@@ -332,12 +370,16 @@ const DataSourcesMockup = () => {
   return (
     <div
       className={`w-[280px] md:w-[320px] backdrop-blur-xl border rounded-2xl shadow-2xl overflow-hidden flex flex-col font-sans select-none transition-colors duration-500 ${
-        isDark ? "bg-[#0a0a0a]/90 border-white/10" : "bg-white/90 border-black/10"
+        isDark
+          ? "bg-[#0a0a0a]/90 border-white/10"
+          : "bg-white/90 border-black/10"
       }`}
     >
       <div
         className={`h-10 border-b flex items-center px-4 justify-between transition-colors duration-500 ${
-          isDark ? "bg-white/[0.02] border-white/5" : "bg-zinc-50 border-black/5"
+          isDark
+            ? "bg-white/[0.02] border-white/5"
+            : "bg-zinc-50 border-black/5"
         }`}
       >
         <div
@@ -354,7 +396,8 @@ const DataSourcesMockup = () => {
               : "bg-blue-50 text-blue-600 border-blue-100"
           }`}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span> Synchronized
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>{" "}
+          Synchronized
         </span>
       </div>
       <div className="p-4 space-y-3">
@@ -389,11 +432,15 @@ const DataSourcesMockup = () => {
             }`}
           >
             <div className="flex items-center gap-3">
-              <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${src.bg}`}>
+              <div
+                className={`w-8 h-8 rounded-lg flex items-center justify-center ${src.bg}`}
+              >
                 <Database className={`w-4 h-4 ${src.color}`} />
               </div>
               <div>
-                <div className={`text-xs font-bold ${isDark ? "text-zinc-200" : "text-zinc-900"}`}>
+                <div
+                  className={`text-xs font-bold ${isDark ? "text-zinc-200" : "text-zinc-900"}`}
+                >
                   {src.name}
                 </div>
                 <div className="text-[10px] text-zinc-500">{src.type}</div>
@@ -435,16 +482,17 @@ const IDEMockup = () => {
         </div>
       </div>
       <div className="p-4 md:p-6 text-zinc-300 flex-1 overflow-x-auto whitespace-pre">
-        <span className="text-pink-400">import</span> {"{"} useQuery, DataGrid {"}"}{" "}
-        <span className="text-pink-400">from</span>{" "}
-        <span className="text-green-300">&apos;@qbuilder/react&apos;</span>;<br />
+        <span className="text-pink-400">import</span> {"{"} useQuery, DataGrid{" "}
+        {"}"} <span className="text-pink-400">from</span>{" "}
+        <span className="text-green-300">&apos;@qbuilder/react&apos;</span>;
+        <br />
         <br />
         <span className="text-pink-400">export default function</span>{" "}
         <span className="text-blue-300">CustomDashboard</span>() {"{"}
         <br />
         {"  "}
-        <span className="text-pink-400">const</span> {"{"} data, isLoading {"}"} ={" "}
-        <span className="text-blue-300">useQuery</span>(
+        <span className="text-pink-400">const</span> {"{"} data, isLoading {"}"}{" "}
+        = <span className="text-blue-300">useQuery</span>(
         <span className="text-green-300">&apos;get_revenue_data&apos;</span>);
         <br />
         <br />
@@ -458,9 +506,13 @@ const IDEMockup = () => {
         <span className="text-pink-400">return</span> (<br />
         {"    "}&lt;<span className="text-blue-300">div</span>{" "}
         <span className="text-blue-200">className</span>=
-        <span className="text-green-300">&quot;p-6 bg-white rounded-xl&quot;</span>&gt;
+        <span className="text-green-300">
+          &quot;p-6 bg-white rounded-xl&quot;
+        </span>
+        &gt;
         <br />
-        {"      "}&lt;<span className="text-blue-300">h1</span>&gt;Live Revenue Sync&lt;/
+        {"      "}&lt;<span className="text-blue-300">h1</span>&gt;Live Revenue
+        Sync&lt;/
         <span className="text-blue-300">h1</span>&gt;
         <br />
         {"      "}&lt;<span className="text-blue-300">DataGrid</span>{" "}
@@ -499,8 +551,8 @@ const DesignerUI = () => {
                 : "bg-white text-zinc-700 border-black/10 shadow-sm"
             }`}
           >
-            <LayoutDashboard className="w-3 h-3 text-blue-500" /> Executive Dashboard{" "}
-            <ChevronDown className="w-3 h-3 text-zinc-500" />
+            <LayoutDashboard className="w-3 h-3 text-blue-500" /> Executive
+            Dashboard <ChevronDown className="w-3 h-3 text-zinc-500" />
           </div>
         </div>
         <div className="flex gap-3">
@@ -522,12 +574,16 @@ const DesignerUI = () => {
       <div className="flex flex-1 overflow-hidden">
         <div
           className={`hidden md:flex w-64 border-r flex-col text-sm transition-colors duration-500 ${
-            isDark ? "bg-[#0a0a0a] border-white/10" : "bg-zinc-50 border-black/10"
+            isDark
+              ? "bg-[#0a0a0a] border-white/10"
+              : "bg-zinc-50 border-black/10"
           }`}
         >
           <div
             className={`p-4 border-b font-semibold transition-colors duration-500 ${
-              isDark ? "border-white/5 text-zinc-300" : "border-black/5 text-zinc-800"
+              isDark
+                ? "border-white/5 text-zinc-300"
+                : "border-black/5 text-zinc-800"
             }`}
           >
             Components
@@ -573,7 +629,9 @@ const DesignerUI = () => {
                   }`}
                 >
                   <Table className="w-4 h-4 text-zinc-400" />
-                  <span className={`text-[11px] ${isDark ? "text-zinc-300" : "text-zinc-700"}`}>
+                  <span
+                    className={`text-[11px] ${isDark ? "text-zinc-300" : "text-zinc-700"}`}
+                  >
                     Data Grid
                   </span>
                 </div>
@@ -585,7 +643,9 @@ const DesignerUI = () => {
                   }`}
                 >
                   <Activity className="w-4 h-4 text-zinc-400" />
-                  <span className={`text-[11px] ${isDark ? "text-zinc-300" : "text-zinc-700"}`}>
+                  <span
+                    className={`text-[11px] ${isDark ? "text-zinc-300" : "text-zinc-700"}`}
+                  >
                     KPI Metric
                   </span>
                 </div>
@@ -596,17 +656,25 @@ const DesignerUI = () => {
 
         <div
           className={`flex-1 p-6 lg:p-8 relative overflow-y-auto flex justify-center items-start transition-colors duration-500 ${
-            isDark ? "bg-[#050505] bg-mini-grid-dark" : "bg-zinc-100 bg-mini-grid-light"
+            isDark
+              ? "bg-[#050505] bg-mini-grid-dark"
+              : "bg-zinc-100 bg-mini-grid-light"
           }`}
         >
           <div className="w-full max-w-3xl grid grid-cols-3 gap-4 lg:gap-6 relative z-10">
             <div
               className={`border rounded-xl p-5 shadow-sm transition-colors duration-500 ${
-                isDark ? "bg-zinc-900/80 border-white/5" : "bg-white border-black/5"
+                isDark
+                  ? "bg-zinc-900/80 border-white/5"
+                  : "bg-white border-black/5"
               }`}
             >
-              <div className="text-zinc-500 text-xs font-semibold mb-2">Total Sales</div>
-              <div className={`text-2xl font-bold mb-2 ${isDark ? "text-white" : "text-black"}`}>
+              <div className="text-zinc-500 text-xs font-semibold mb-2">
+                Total Sales
+              </div>
+              <div
+                className={`text-2xl font-bold mb-2 ${isDark ? "text-white" : "text-black"}`}
+              >
                 $845,290
               </div>
               <div className="text-[10px] text-emerald-500 flex items-center gap-1">
@@ -627,8 +695,12 @@ const DesignerUI = () => {
               <div className="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-white border border-blue-500 rounded-sm"></div>
               <div className="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-white border border-blue-500 rounded-sm"></div>
 
-              <div className="text-zinc-500 text-xs font-semibold mb-2">New Customers</div>
-              <div className={`text-2xl font-bold mb-2 ${isDark ? "text-white" : "text-black"}`}>
+              <div className="text-zinc-500 text-xs font-semibold mb-2">
+                New Customers
+              </div>
+              <div
+                className={`text-2xl font-bold mb-2 ${isDark ? "text-white" : "text-black"}`}
+              >
                 1,240
               </div>
               <div className="text-[10px] text-emerald-500 flex items-center gap-1">
@@ -638,19 +710,29 @@ const DesignerUI = () => {
 
             <div
               className={`border rounded-xl p-5 shadow-sm transition-colors duration-500 ${
-                isDark ? "bg-zinc-900/80 border-white/5" : "bg-white border-black/5"
+                isDark
+                  ? "bg-zinc-900/80 border-white/5"
+                  : "bg-white border-black/5"
               }`}
             >
-              <div className="text-zinc-500 text-xs font-semibold mb-2">Churn Rate</div>
-              <div className={`text-2xl font-bold mb-2 ${isDark ? "text-white" : "text-black"}`}>
+              <div className="text-zinc-500 text-xs font-semibold mb-2">
+                Churn Rate
+              </div>
+              <div
+                className={`text-2xl font-bold mb-2 ${isDark ? "text-white" : "text-black"}`}
+              >
                 2.4%
               </div>
-              <div className="text-[10px] text-red-500 flex items-center gap-1">-0.5%</div>
+              <div className="text-[10px] text-red-500 flex items-center gap-1">
+                -0.5%
+              </div>
             </div>
 
             <div
               className={`col-span-3 border rounded-xl p-6 h-64 flex flex-col shadow-sm transition-colors duration-500 ${
-                isDark ? "bg-zinc-900/80 border-white/5" : "bg-white border-black/5"
+                isDark
+                  ? "bg-zinc-900/80 border-white/5"
+                  : "bg-white border-black/5"
               }`}
             >
               <div
@@ -686,7 +768,9 @@ const DesignerUI = () => {
 
         <div
           className={`hidden lg:flex w-72 border-l flex-col text-xs overflow-y-auto transition-colors duration-500 ${
-            isDark ? "bg-[#0a0a0a] border-white/10" : "bg-zinc-50 border-black/10"
+            isDark
+              ? "bg-[#0a0a0a] border-white/10"
+              : "bg-zinc-50 border-black/10"
           }`}
         >
           <div
@@ -718,7 +802,9 @@ const DesignerUI = () => {
               </div>
               <div
                 className={`border rounded p-2.5 flex items-center gap-2 mb-2 shadow-inner transition-colors duration-500 ${
-                  isDark ? "bg-black border-blue-500/30" : "bg-white border-blue-200"
+                  isDark
+                    ? "bg-black border-blue-500/30"
+                    : "bg-white border-blue-200"
                 }`}
               >
                 <Terminal className="w-4 h-4 text-blue-500" />
@@ -747,7 +833,9 @@ const DesignerUI = () => {
                     Metric Value{" "}
                     <span
                       className={`text-[9px] px-1 rounded ${
-                        isDark ? "bg-white/10 text-zinc-400" : "bg-black/5 text-zinc-600"
+                        isDark
+                          ? "bg-white/10 text-zinc-400"
+                          : "bg-black/5 text-zinc-600"
                       }`}
                     >
                       Number
@@ -765,7 +853,8 @@ const DesignerUI = () => {
                         isDark ? "text-zinc-300" : "text-zinc-800"
                       }`}
                     >
-                      <span className="text-blue-500 font-bold">∑</span> count_users
+                      <span className="text-blue-500 font-bold">∑</span>{" "}
+                      count_users
                     </span>
                     <ChevronDown className="w-3 h-3 text-zinc-500" />
                   </div>
@@ -800,7 +889,9 @@ export default function QBuilder() {
   // Adjust body background color class based on theme
   useEffect(() => {
     document.body.className = `antialiased overflow-x-hidden transition-colors duration-500 ${
-      isDark ? "bg-[#050505] text-white dark-mode-scroll" : "bg-zinc-50 text-zinc-900"
+      isDark
+        ? "bg-[#050505] text-white dark-mode-scroll"
+        : "bg-zinc-50 text-zinc-900"
     }`;
   }, [isDark]);
 
@@ -833,7 +924,9 @@ export default function QBuilder() {
   ];
 
   return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme: () => setIsDark(!isDark) }}>
+    <ThemeContext.Provider
+      value={{ isDark, toggleTheme: () => setIsDark(!isDark) }}
+    >
       <div className="min-h-screen relative font-sans selection:bg-blue-500/30">
         {/* TOP BANNER */}
         <div
@@ -846,7 +939,8 @@ export default function QBuilder() {
           <span className="bg-blue-600 text-white px-2 py-0.5 rounded text-[10px] font-bold shadow-sm">
             NEW
           </span>
-          Announcing QBuilder AI 2.0: Generate complex SQL & automate reports with a single prompt.
+          Announcing QBuilder AI 2.0: Generate complex SQL & automate reports
+          with a single prompt.
           <span
             className={`flex items-center underline underline-offset-2 font-semibold ${
               isDark ? "text-white" : "text-blue-600"
@@ -864,7 +958,9 @@ export default function QBuilder() {
         ></div>
         <div
           className={`absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full pointer-events-none z-0 transition-all duration-500 ${
-            isDark ? "bg-blue-600/10 blur-[150px]" : "bg-blue-400/10 blur-[100px]"
+            isDark
+              ? "bg-blue-600/10 blur-[150px]"
+              : "bg-blue-400/10 blur-[100px]"
           }`}
         ></div>
 
@@ -937,7 +1033,9 @@ export default function QBuilder() {
               <button
                 onClick={() => setIsDark(!isDark)}
                 className={`p-2 rounded-full transition ${
-                  isDark ? "text-zinc-400 hover:bg-zinc-800" : "text-zinc-500 hover:bg-zinc-100"
+                  isDark
+                    ? "text-zinc-400 hover:bg-zinc-800"
+                    : "text-zinc-500 hover:bg-zinc-100"
                 }`}
                 aria-label="Toggle Theme"
               >
@@ -945,7 +1043,9 @@ export default function QBuilder() {
               </button>
               <button
                 className={`transition px-2 ${
-                  isDark ? "text-zinc-300 hover:text-white" : "text-zinc-600 hover:text-zinc-900"
+                  isDark
+                    ? "text-zinc-300 hover:text-white"
+                    : "text-zinc-600 hover:text-zinc-900"
                 }`}
               >
                 Log in
@@ -960,7 +1060,9 @@ export default function QBuilder() {
                 Start for free
               </button>
             </div>
-            <button className={`lg:hidden ${isDark ? "text-white" : "text-zinc-900"}`}>
+            <button
+              className={`lg:hidden ${isDark ? "text-white" : "text-zinc-900"}`}
+            >
               <Menu />
             </button>
           </nav>
@@ -987,8 +1089,8 @@ export default function QBuilder() {
                     : "bg-white/50 border-black/10 text-zinc-600 shadow-sm"
                 }`}
               >
-                <Code2 className="w-3.5 h-3.5 text-zinc-400" /> Build BI tools without the frontend
-                code.
+                <Code2 className="w-3.5 h-3.5 text-zinc-400" /> Build BI tools
+                without the frontend code.
               </div>
               <h1
                 className={`text-5xl md:text-7xl lg:text-[5.5rem] font-extrabold tracking-tight leading-[1.05] mb-6 transition-colors duration-500 ${
@@ -1012,8 +1114,9 @@ export default function QBuilder() {
                   isDark ? "text-zinc-400" : "text-zinc-600"
                 }`}
               >
-                Connect your databases, let AI generate the heavy SQL, and visually design
-                enterprise-grade dashboards. The ultimate platform for fast-moving data teams.
+                Connect your databases, let AI generate the heavy SQL, and
+                visually design enterprise-grade dashboards. The ultimate
+                platform for fast-moving data teams.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
@@ -1042,7 +1145,10 @@ export default function QBuilder() {
           <Reveal delay="delay-200" className="w-full">
             <div
               className="relative w-full h-[450px] md:h-[600px] flex justify-center items-center mt-10 md:mt-0 transition-transform duration-200 ease-out"
-              style={{ transform: "rotateX(var(--tilt-x, 0)) rotateY(var(--tilt-y, 0))" }}
+              style={{
+                transform:
+                  "rotateX(var(--tilt-x, 0)) rotateY(var(--tilt-y, 0))",
+              }}
             >
               <div
                 className="absolute z-10 animate-float-delayed"
@@ -1086,17 +1192,23 @@ export default function QBuilder() {
         {/* LOGO TICKER */}
         <div
           className={`relative py-12 border-y overflow-hidden z-10 transition-colors duration-500 ${
-            isDark ? "bg-white/[0.01] border-white/5" : "bg-black/[0.02] border-black/5"
+            isDark
+              ? "bg-white/[0.01] border-white/5"
+              : "bg-black/[0.02] border-black/5"
           }`}
         >
           <div
             className={`absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r z-20 transition-colors duration-500 ${
-              isDark ? "from-[#050505] to-transparent" : "from-zinc-50 to-transparent"
+              isDark
+                ? "from-[#050505] to-transparent"
+                : "from-zinc-50 to-transparent"
             }`}
           ></div>
           <div
             className={`absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l z-20 transition-colors duration-500 ${
-              isDark ? "from-[#050505] to-transparent" : "from-zinc-50 to-transparent"
+              isDark
+                ? "from-[#050505] to-transparent"
+                : "from-zinc-50 to-transparent"
             }`}
           ></div>
           <div className="flex items-center gap-24 animate-[marquee_40s_linear_infinite] whitespace-nowrap px-10">
@@ -1142,8 +1254,9 @@ export default function QBuilder() {
                   isDark ? "text-zinc-400" : "text-zinc-600"
                 }`}
               >
-                From raw database connection to a fully interactive dashboard in minutes. We handle
-                the infrastructure, you focus on delivering insights.
+                From raw database connection to a fully interactive dashboard in
+                minutes. We handle the infrastructure, you focus on delivering
+                insights.
               </p>
             </div>
           </Reveal>
@@ -1215,7 +1328,9 @@ export default function QBuilder() {
             <Reveal
               delay="delay-200"
               className={`border rounded-3xl p-6 h-[400px] flex items-center justify-center relative overflow-hidden shadow-2xl transition-colors duration-500 ${
-                isDark ? "bg-[#0a0a0a] border-white/10" : "bg-zinc-100 border-black/10"
+                isDark
+                  ? "bg-[#0a0a0a] border-white/10"
+                  : "bg-zinc-100 border-black/10"
               }`}
             >
               <div
@@ -1238,18 +1353,26 @@ export default function QBuilder() {
                           : "bg-white border-black/10 text-blue-600"
                       }`}
                     >
-                      <span className={isDark ? "text-zinc-400" : "text-zinc-500"}>
+                      <span
+                        className={isDark ? "text-zinc-400" : "text-zinc-500"}
+                      >
                         &gt; Connecting to Production DB...
                       </span>
                       <br />
-                      <span className={isDark ? "text-emerald-400" : "text-emerald-600"}>
+                      <span
+                        className={
+                          isDark ? "text-emerald-400" : "text-emerald-600"
+                        }
+                      >
                         ✓ Secure SSL Connection established
                       </span>
                       <br />
                       <br />
                       SELECT * FROM users LIMIT 100;
                       <br />
-                      <span className={isDark ? "text-zinc-500" : "text-zinc-400"}>
+                      <span
+                        className={isDark ? "text-zinc-500" : "text-zinc-400"}
+                      >
                         Query OK, 100 rows fetched in 0.02s
                       </span>
                     </div>
@@ -1285,8 +1408,8 @@ export default function QBuilder() {
                   isDark ? "text-zinc-400" : "text-zinc-600"
                 }`}
               >
-                Native integrations for standardized databases, data warehouses, and custom
-                REST/GraphQL APIs. Secure tunneling out of the box.
+                Native integrations for standardized databases, data warehouses,
+                and custom REST/GraphQL APIs. Secure tunneling out of the box.
               </p>
             </div>
           </Reveal>
@@ -1313,7 +1436,9 @@ export default function QBuilder() {
                   }`}
                 >
                   {i % 3 === 0 ? (
-                    <Database className={`w-4 h-4 ${isDark ? "text-blue-400" : "text-blue-600"}`} />
+                    <Database
+                      className={`w-4 h-4 ${isDark ? "text-blue-400" : "text-blue-600"}`}
+                    />
                   ) : i % 2 === 0 ? (
                     <Network
                       className={`w-4 h-4 ${isDark ? "text-emerald-400" : "text-emerald-600"}`}
@@ -1334,7 +1459,9 @@ export default function QBuilder() {
                 }`}
               >
                 <Plus className="w-4 h-4" />{" "}
-                <span className="font-semibold text-sm">View all 50+ Integrations</span>
+                <span className="font-semibold text-sm">
+                  View all 50+ Integrations
+                </span>
               </div>
             </div>
           </Reveal>
@@ -1356,8 +1483,9 @@ export default function QBuilder() {
                   isDark ? "text-zinc-400" : "text-zinc-600"
                 }`}
               >
-                Engineered for scale. From real-time multiplayer to SOC2 compliance, QBuilder equips
-                your team with world-class primitives out of the box.
+                Engineered for scale. From real-time multiplayer to SOC2
+                compliance, QBuilder equips your team with world-class
+                primitives out of the box.
               </p>
             </div>
           </Reveal>
@@ -1394,8 +1522,9 @@ export default function QBuilder() {
                       isDark ? "text-zinc-400" : "text-zinc-600"
                     }`}
                   >
-                    Say goodbye to wrangling React states or CSS. Map your data outputs directly
-                    onto interactive, responsive components onto an infinite canvas.
+                    Say goodbye to wrangling React states or CSS. Map your data
+                    outputs directly onto interactive, responsive components
+                    onto an infinite canvas.
                   </p>
                 </div>
 
@@ -1408,12 +1537,16 @@ export default function QBuilder() {
                 >
                   <div
                     className={`w-16 border-r p-2 flex flex-col gap-2 transition-colors duration-500 ${
-                      isDark ? "bg-[#080808] border-white/5" : "bg-white border-black/5"
+                      isDark
+                        ? "bg-[#080808] border-white/5"
+                        : "bg-white border-black/5"
                     }`}
                   >
                     <div
                       className={`w-full aspect-square rounded flex items-center justify-center transition-colors duration-500 ${
-                        isDark ? "bg-white/5 text-zinc-400" : "bg-zinc-100 text-zinc-500"
+                        isDark
+                          ? "bg-white/5 text-zinc-400"
+                          : "bg-zinc-100 text-zinc-500"
                       }`}
                     >
                       <BarChart3 size={14} />
@@ -1429,7 +1562,9 @@ export default function QBuilder() {
                     </div>
                     <div
                       className={`w-full aspect-square rounded flex items-center justify-center transition-colors duration-500 ${
-                        isDark ? "bg-white/5 text-zinc-400" : "bg-zinc-100 text-zinc-500"
+                        isDark
+                          ? "bg-white/5 text-zinc-400"
+                          : "bg-zinc-100 text-zinc-500"
                       }`}
                     >
                       <Table size={14} />
@@ -1459,7 +1594,10 @@ export default function QBuilder() {
                         <div className="flex-1 bg-blue-500 rounded-sm h-[60%]"></div>
                       </div>
                       <div className="absolute -top-3 -right-3 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
-                        <MousePointer2 size={12} className="fill-white text-white" />
+                        <MousePointer2
+                          size={12}
+                          className="fill-white text-white"
+                        />
                       </div>
                     </div>
                   </div>
@@ -1498,14 +1636,16 @@ export default function QBuilder() {
                       isDark ? "text-zinc-400" : "text-zinc-600"
                     }`}
                   >
-                    Build alongside your team. Share queries, leave comments, and watch updates
-                    instantly.
+                    Build alongside your team. Share queries, leave comments,
+                    and watch updates instantly.
                   </p>
                 </div>
 
                 <div
                   className={`relative w-full flex-1 border rounded-xl overflow-hidden p-3 pt-6 mt-3 transition-colors duration-500 ${
-                    isDark ? "bg-[#111] border-white/10" : "bg-zinc-50 border-black/5 shadow-inner"
+                    isDark
+                      ? "bg-[#111] border-white/10"
+                      : "bg-zinc-50 border-black/5 shadow-inner"
                   }`}
                 >
                   <div className="absolute top-2 left-3 text-[8px] text-zinc-500 font-bold uppercase">
@@ -1514,18 +1654,24 @@ export default function QBuilder() {
                   <div className="flex gap-2 mb-2">
                     <div
                       className={`h-10 flex-1 rounded border transition-colors duration-500 ${
-                        isDark ? "bg-white/5 border-white/5" : "bg-white border-black/5"
+                        isDark
+                          ? "bg-white/5 border-white/5"
+                          : "bg-white border-black/5"
                       }`}
                     ></div>
                     <div
                       className={`h-10 flex-1 rounded border transition-colors duration-500 ${
-                        isDark ? "bg-white/5 border-white/5" : "bg-white border-black/5"
+                        isDark
+                          ? "bg-white/5 border-white/5"
+                          : "bg-white border-black/5"
                       }`}
                     ></div>
                   </div>
                   <div
                     className={`h-20 w-full rounded border flex items-end px-2 gap-1 pb-1 transition-colors duration-500 ${
-                      isDark ? "bg-white/5 border-white/5" : "bg-white border-black/5"
+                      isDark
+                        ? "bg-white/5 border-white/5"
+                        : "bg-white border-black/5"
                     }`}
                   >
                     <div
@@ -1591,14 +1737,16 @@ export default function QBuilder() {
                       isDark ? "text-zinc-400" : "text-zinc-600"
                     }`}
                   >
-                    SOC2 compliant by default. Built-in granular RBAC, SSO, and comprehensive audit
-                    logs.
+                    SOC2 compliant by default. Built-in granular RBAC, SSO, and
+                    comprehensive audit logs.
                   </p>
                 </div>
 
                 <div
                   className={`relative w-full flex-1 border rounded-xl overflow-hidden flex flex-col font-mono text-[9px] md:text-[10px] mt-3 transition-colors duration-500 ${
-                    isDark ? "bg-[#111] border-white/10" : "bg-zinc-50 border-black/5 shadow-inner"
+                    isDark
+                      ? "bg-[#111] border-white/10"
+                      : "bg-zinc-50 border-black/5 shadow-inner"
                   }`}
                 >
                   <div
@@ -1713,8 +1861,9 @@ export default function QBuilder() {
                       isDark ? "text-zinc-400" : "text-zinc-600"
                     }`}
                   >
-                    Join structured SQL data with external REST APIs natively in memory. Stream
-                    millions of rows directly to the client in milliseconds.
+                    Join structured SQL data with external REST APIs natively in
+                    memory. Stream millions of rows directly to the client in
+                    milliseconds.
                   </p>
                 </div>
 
@@ -1741,12 +1890,14 @@ export default function QBuilder() {
                     >
                       42ms
                     </div>
-                    <span className="text-blue-500">SELECT</span> u.id, u.name, SUM(p.amount){" "}
-                    <span className="text-blue-500">AS</span> total
+                    <span className="text-blue-500">SELECT</span> u.id, u.name,
+                    SUM(p.amount) <span className="text-blue-500">AS</span>{" "}
+                    total
                     <br />
                     <span className="text-blue-500">FROM</span> postgres.users u
                     <br />
-                    <span className="text-blue-500">JOIN</span> stripe_api.payments p{" "}
+                    <span className="text-blue-500">JOIN</span>{" "}
+                    stripe_api.payments p{" "}
                     <span className="text-blue-500">ON</span> u.id = p.user_id
                     <br />
                     <span className="text-blue-500">GROUP BY</span> 1, 2;
@@ -1758,7 +1909,9 @@ export default function QBuilder() {
                   >
                     <div
                       className={`grid grid-cols-3 gap-2 text-[9px] font-bold border-b pb-1 mb-1 uppercase tracking-wider transition-colors duration-500 ${
-                        isDark ? "text-zinc-500 border-white/5" : "text-zinc-600 border-black/5"
+                        isDark
+                          ? "text-zinc-500 border-white/5"
+                          : "text-zinc-600 border-black/5"
                       }`}
                     >
                       <span>id</span>
@@ -1767,23 +1920,37 @@ export default function QBuilder() {
                     </div>
                     <div
                       className={`grid grid-cols-3 gap-2 text-[9px] py-1 rounded px-1 transition-colors duration-500 ${
-                        isDark ? "text-zinc-400 hover:bg-white/5" : "text-zinc-700 hover:bg-black/5"
+                        isDark
+                          ? "text-zinc-400 hover:bg-white/5"
+                          : "text-zinc-700 hover:bg-black/5"
                       }`}
                     >
                       <span>usr_9x</span>
                       <span>Alex Doe</span>
-                      <span className={isDark ? "text-emerald-400" : "text-emerald-600"}>
+                      <span
+                        className={
+                          isDark ? "text-emerald-400" : "text-emerald-600"
+                        }
+                      >
                         $1,240
                       </span>
                     </div>
                     <div
                       className={`grid grid-cols-3 gap-2 text-[9px] py-1 rounded px-1 transition-colors duration-500 ${
-                        isDark ? "text-zinc-400 hover:bg-white/5" : "text-zinc-700 hover:bg-black/5"
+                        isDark
+                          ? "text-zinc-400 hover:bg-white/5"
+                          : "text-zinc-700 hover:bg-black/5"
                       }`}
                     >
                       <span>usr_3b</span>
                       <span>Sarah L.</span>
-                      <span className={isDark ? "text-emerald-400" : "text-emerald-600"}>$890</span>
+                      <span
+                        className={
+                          isDark ? "text-emerald-400" : "text-emerald-600"
+                        }
+                      >
+                        $890
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -1822,43 +1989,57 @@ export default function QBuilder() {
                   isDark ? "text-zinc-400" : "text-zinc-600"
                 }`}
               >
-                Don&apos;t let the visual canvas limit your engineering team. QBuilder is built on
-                standard web technologies, allowing developers to extend logic infinitely.
+                Don&apos;t let the visual canvas limit your engineering team.
+                QBuilder is built on standard web technologies, allowing
+                developers to extend logic infinitely.
               </p>
               <div className="space-y-4 pt-4">
                 <div className="flex items-start gap-4">
                   <div
                     className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-500 ${
-                      isDark ? "bg-white/10 text-white" : "bg-black/5 text-black"
+                      isDark
+                        ? "bg-white/10 text-white"
+                        : "bg-black/5 text-black"
                     }`}
                   >
                     <FileCode2 className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className={`font-bold mb-1 ${isDark ? "text-zinc-200" : "text-zinc-900"}`}>
+                    <h4
+                      className={`font-bold mb-1 ${isDark ? "text-zinc-200" : "text-zinc-900"}`}
+                    >
                       Write Custom React/JS
                     </h4>
-                    <p className={`text-sm ${isDark ? "text-zinc-500" : "text-zinc-600"}`}>
-                      Drop into the built-in IDE to write complex transformations or import external
-                      NPM packages seamlessly.
+                    <p
+                      className={`text-sm ${isDark ? "text-zinc-500" : "text-zinc-600"}`}
+                    >
+                      Drop into the built-in IDE to write complex
+                      transformations or import external NPM packages
+                      seamlessly.
                     </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
                   <div
                     className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 transition-colors duration-500 ${
-                      isDark ? "bg-white/10 text-white" : "bg-black/5 text-black"
+                      isDark
+                        ? "bg-white/10 text-white"
+                        : "bg-black/5 text-black"
                     }`}
                   >
                     <GitBranch className="w-4 h-4" />
                   </div>
                   <div>
-                    <h4 className={`font-bold mb-1 ${isDark ? "text-zinc-200" : "text-zinc-900"}`}>
+                    <h4
+                      className={`font-bold mb-1 ${isDark ? "text-zinc-200" : "text-zinc-900"}`}
+                    >
                       Git Sync & CI/CD
                     </h4>
-                    <p className={`text-sm ${isDark ? "text-zinc-500" : "text-zinc-600"}`}>
-                      Everything is stored as code. Sync with GitHub, create branches, and deploy
-                      via your existing CI/CD pipelines.
+                    <p
+                      className={`text-sm ${isDark ? "text-zinc-500" : "text-zinc-600"}`}
+                    >
+                      Everything is stored as code. Sync with GitHub, create
+                      branches, and deploy via your existing CI/CD pipelines.
                     </p>
                   </div>
                 </div>
@@ -1887,8 +2068,8 @@ export default function QBuilder() {
                   isDark ? "text-zinc-400" : "text-zinc-600"
                 }`}
               >
-                See how modern tech companies are accelerating their workflows and saving thousands
-                of engineering hours.
+                See how modern tech companies are accelerating their workflows
+                and saving thousands of engineering hours.
               </p>
             </div>
           </Reveal>
@@ -1916,7 +2097,9 @@ export default function QBuilder() {
               <Reveal key={i} delay={`delay-[${i * 100}ms]`}>
                 <div
                   className={`border rounded-2xl p-6 h-full flex flex-col justify-between transition-colors duration-500 ${
-                    isDark ? "bg-[#0a0a0a] border-white/10" : "bg-white border-black/10 shadow-lg"
+                    isDark
+                      ? "bg-[#0a0a0a] border-white/10"
+                      : "bg-white border-black/10 shadow-lg"
                   }`}
                 >
                   <Quote
@@ -2121,7 +2304,9 @@ export default function QBuilder() {
                     </div>
                     <div
                       className={`px-6 overflow-hidden transition-all duration-300 ${
-                        openFaq === idx ? "max-h-40 pb-5 opacity-100" : "max-h-0 opacity-0"
+                        openFaq === idx
+                          ? "max-h-40 pb-5 opacity-100"
+                          : "max-h-0 opacity-0"
                       }`}
                     >
                       <p
@@ -2159,7 +2344,9 @@ export default function QBuilder() {
                     : "bg-white border border-black/5 shadow-xl"
                 }`}
               >
-                <LayoutDashboard className={`w-8 h-8 ${isDark ? "text-black" : "text-blue-600"}`} />
+                <LayoutDashboard
+                  className={`w-8 h-8 ${isDark ? "text-black" : "text-blue-600"}`}
+                />
               </div>
               <h2
                 className={`text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight transition-colors duration-500 ${
@@ -2175,8 +2362,9 @@ export default function QBuilder() {
                   isDark ? "text-zinc-400" : "text-zinc-600"
                 }`}
               >
-                Join thousands of forward-thinking engineering teams building the next generation of
-                internal tools. Stop building from scratch.
+                Join thousands of forward-thinking engineering teams building
+                the next generation of internal tools. Stop building from
+                scratch.
               </p>
               <button
                 className={`px-10 py-4 rounded-full text-lg font-bold transition hover:scale-105 active:scale-95 shadow-xl ${
@@ -2190,7 +2378,10 @@ export default function QBuilder() {
             </Reveal>
           </div>
 
-          <Reveal delay="delay-400" className="w-full max-w-[1200px] px-4 mx-auto relative z-20">
+          <Reveal
+            delay="delay-400"
+            className="w-full max-w-[1200px] px-4 mx-auto relative z-20"
+          >
             <DesignerUI />
           </Reveal>
         </section>
@@ -2424,9 +2615,14 @@ export default function QBuilder() {
             ></div>
             <div
               className={`relative w-full max-w-4xl border rounded-2xl overflow-hidden shadow-2xl transition-colors duration-500 ${
-                isDark ? "bg-[#0a0a0a] border-white/10" : "bg-white border-black/10"
+                isDark
+                  ? "bg-[#0a0a0a] border-white/10"
+                  : "bg-white border-black/10"
               }`}
-              style={{ animation: "scaleIn 0.3s ease-out forwards", opacity: 0 }}
+              style={{
+                animation: "scaleIn 0.3s ease-out forwards",
+                opacity: 0,
+              }}
             >
               <div
                 className="absolute top-4 right-4 z-10 cursor-pointer text-white/80 hover:text-white bg-black/50 p-2 rounded-full backdrop-blur transition"
@@ -2437,7 +2633,9 @@ export default function QBuilder() {
               <div className="w-full aspect-video bg-[#111] flex flex-col items-center justify-center relative overflow-hidden group">
                 <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80')] bg-cover bg-center opacity-30"></div>
                 <PlayCircle className="w-20 h-20 text-white/80 group-hover:text-white group-hover:scale-110 transition-all duration-300 cursor-pointer z-10" />
-                <div className="mt-4 font-medium text-white z-10">QBuilder Product Demo (2:14)</div>
+                <div className="mt-4 font-medium text-white z-10">
+                  QBuilder Product Demo (2:14)
+                </div>
               </div>
             </div>
           </div>
