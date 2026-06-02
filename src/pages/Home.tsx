@@ -1,4 +1,4 @@
-import { ArrowUpRight, Box, Code2, Layout } from "lucide-react";
+import { ArrowUpRight, Box, Code2, Layout, Shield } from "lucide-react";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -40,6 +40,21 @@ const projects = [
       light: "rgba(56, 189, 248, 0.15)",
       border: "group-hover:border-sky-500/50",
       iconText: "text-sky-400",
+    },
+  },
+  {
+    id: "insight-ai",
+    title: "Insight AI Platform",
+    description:
+      "Cyber threat intelligence landing page with dashboard mockups, graph analysis, and AI risk prediction modules.",
+    path: "/projects/insight-ai",
+    icon: Shield,
+    tags: ["Landing Page", "Dashboard", "AI"],
+    status: "Draft",
+    theme: {
+      light: "rgba(59, 130, 246, 0.15)",
+      border: "group-hover:border-blue-500/50",
+      iconText: "text-blue-400",
     },
   },
   // {

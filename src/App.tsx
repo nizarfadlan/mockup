@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
+import InsightAI from "./pages/InsightAI";
 import QBuilder from "./pages/QBuilder";
 
 export default function App() {
@@ -8,6 +9,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects/qbuilder" element={<QBuilder />} />
+        <Route path="/projects/insight-ai" element={<InsightAI />} />
       </Routes>
     </BrowserRouter>
   );
